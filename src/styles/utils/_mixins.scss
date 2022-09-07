@@ -1,0 +1,54 @@
+@import "./theme";
+
+@function theme($key, $value) {
+  @return map-get($key, $value);
+}
+
+@mixin from($screenName) {
+  @media screen and (min-width: map-get($screens, $screenName)) {
+    @content;
+  }
+}
+
+@mixin font-base(
+  $mobileSize,
+  $desktopSize,
+  $family,
+  $lineHeight,
+  $letterSpacing: 0,
+  $weight: "normal"
+) {
+  font-family: theme($fontFamilies, $family);
+  font-size: theme($fontSizes, $mobileSize);
+  font-weight: theme($fontWeights, $weight);
+  line-height: $lineHeight;
+  letter-spacing: $letterSpacing;
+
+  @if $desktopSize != null {
+    @include from("md") {
+      font-size: theme($fontSizes, $desktopSize);
+    }
+  }
+}
+
+@mixin mapToProps($map, $key: "toto") {
+  @if type-of($map) == map {
+    @each $prop, $value in $map {
+      @if type-of($value) != map {
+        @if inspect($prop) != "description" {
+          #{$key}___#{$prop}: #{inspect($value)};
+        }
+      } @else {
+        @include mapToProps($value);
+      }
+    }
+  }
+}
+
+:export {
+  @include mapToProps($colors, "colors");
+  @include mapToProps($mobile, "mobile");
+  @include mapToProps($desktop, "desktop");
+  @include mapToProps($screens, "screens");
+  @include mapToProps($navHeight, "navHeight");
+}

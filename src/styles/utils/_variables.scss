@@ -1,0 +1,63 @@
+@import "./mixins";
+
+%base-grid {
+  display: grid;
+  width: 100vw;
+  max-width: 100%;
+  grid-template-columns: repeat(theme($mobile, "columns"), 1fr);
+  grid-template-rows: 1fr;
+  column-gap: theme($mobile, "gap");
+  padding: 0 theme($mobile, "gutter");
+  margin: 0 auto;
+  box-sizing: border-box;
+
+  @include from("md") {
+    grid-template-columns: repeat(theme($desktop, "columns"), 1fr);
+    grid-template-rows: 1fr;
+    column-gap: theme($desktop, "gap");
+    padding: 0 theme($desktop, "gutter");
+  }
+
+  @include from("md") {
+    width: theme($max, "width");
+  }
+}
+
+// -------------Texts--------------
+
+.inherit {
+  font-family: inherit;
+  color: inherit;
+  text-transform: inherit;
+}
+
+%text {
+  /**
+  * Inter
+  */
+  &-inter {
+    &-12 {
+      @include font-base(12, 12, "Inter", 1.4);
+    }
+
+    &-14 {
+      @include font-base(14, 14, "Inter", 1.4);
+    }
+
+    &-16 {
+      @include font-base(16, 16, "Inter", 1.4);
+    }
+
+    &-18 {
+      @include font-base(18, 18, "Inter", 1.4);
+    }
+
+    &-20 {
+      @include font-base(20, 20, "Inter", 1.4);
+    }
+
+    &-16-20 {
+      @include font-base(16, 20, "Inter", 1.4);
+    }
+  }
+}

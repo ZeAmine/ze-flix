@@ -1,3 +1,96 @@
+@import "../../styles/utils/variables";
+
 .Header {
-  background-color: blue;
+  @extend %base-grid;
+
+  height: 110px;
+  border-bottom: 1px solid theme($colors, "silver");
+
+  .brandContainer {
+    grid-column: 1 / 5;
+    display: grid;
+    align-items: center;
+
+    .brand {
+      @extend %text-inter-16;
+      font-weight: theme($fontWeights, "semibold");
+    }
+  }
+
+  .navList {
+    grid-column: 5 / 12;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .navCategory {
+    position: relative;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: -1px;
+    border-bottom: 1px solid theme($colors, "silver");
+    border-right: 1px solid theme($colors, "silver");
+    cursor: pointer;
+
+    &:first-child {
+      border-left: 1px solid theme($colors, "silver");
+    }
+
+    &:hover {
+      border-bottom: 1px solid theme($colors, "cod");
+    }
+
+    // &::before {
+    //   content: "";
+    //   position: absolute;
+    //   top: 0;
+    //   right: -1px;
+    //   bottom: -1px;
+    //   left: -1px;
+    //   background-color: red;
+    //   transform-origin: bottom;
+    //   transform: scaleX(1) scaleY(1);
+    //   transition: all 150ms ease-in-out;
+    // }
+  }
+
+  .item {
+    @extend %text-inter-14;
+    font-weight: theme($fontWeights, "normal");
+  }
+
+  .profile {
+    grid-column: -4 / -1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    align-items: center;
+
+    .icon {
+      padding: theme($spacings, 10);
+      cursor: pointer;
+    }
+
+    .user {
+      grid-column: span 2 / span 2;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 47%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 53px;
+        height: 53px;
+        border-radius: 50%;
+        border: 1px solid theme($colors, "gray");
+      }
+
+      &:hover:before {
+        background-color: theme($colors, "cod");
+      }
+    }
+  }
 }

@@ -10,9 +10,9 @@ body {
   font-family: theme($fontFamilies, "Inter");
   font-weight: theme($fontWeights, "regular");
   font-size: theme($fontSizes, 14);
-  color: theme($colors, "black");
+  color: theme($colors, "cod");
   line-height: 1.4;
-  background-color: theme($colors, "white");
+  background-color: theme($colors, "sheashell");
   transition: background-color 0.8s linear;
   overscroll-behavior-y: none;
 }

@@ -1,5 +1,7 @@
-@import "./reset";
-@import "./responsive";
-@import "./theme";
-@import "./variables";
-@import "./globals";
+@import "base/reset";
+
+@import "utils/variables";
+@import "utils/theme";
+@import "utils/mixins";
+
+@import "base/base";

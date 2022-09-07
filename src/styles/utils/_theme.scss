@@ -4,13 +4,15 @@
   COLORS
 */
 $colors: (
-  "white": #ffffff,
-  "black": #111111,
-  "black-60": #707070,
-  "black-33": #b1b1b1,
-  "black-20": #cfcfcf,
-  "black-13": #dddddd,
-  "alto": #dddddd,
+  "lime": #c3e301,
+  "cod": #0d0d0d,
+  "gray": #8c8c8c,
+  "silver": #cbcbcb,
+  "sheashell": #f1f1f1,
+  // "black-60": #707070,
+  // "black-33": #b1b1b1,
+  // "black-20": #cfcfcf,
+  // "black-13": #dddddd,,
 );
 
 /*
@@ -25,7 +27,7 @@ $mobile: (
 $desktop: (
   "columns": 24,
   "gap": 8px,
-  "gutter": 20px,
+  "gutter": 40px,
 );
 
 $max: (

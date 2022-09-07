@@ -7,8 +7,8 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Zeflix</title>
-        <meta name="title" content="Ze Flix" />
+        <title>ZE/FLIX</title>
+        <meta name="title" content="ZE/FLIX" />
         <meta
           name="description"
           content="Zeflix est un service de streaming qui propose une vaste sélection de séries, films, animes, documentaires et autres programmes primés sur des milliers ..."
