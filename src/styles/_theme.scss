@@ -1,0 +1,157 @@
+@use "sass:math";
+
+/*
+  COLORS
+*/
+$colors: (
+  "white": #ffffff,
+  "black": #111111,
+  "black-60": #707070,
+  "black-33": #b1b1b1,
+  "black-20": #cfcfcf,
+  "black-13": #dddddd,
+  "alto": #dddddd,
+);
+
+/*
+  GRID
+*/
+$mobile: (
+  "columns": 16,
+  "gap": 8px,
+  "gutter": 20px,
+);
+
+$desktop: (
+  "columns": 24,
+  "gap": 8px,
+  "gutter": 20px,
+);
+
+$max: (
+  "width-design": 1440px,
+  "width": 1940px,
+);
+
+/*
+  FONTS
+*/
+$Inter: "Inter", sans-serif;
+
+$fontFamilies: (
+  Inter: $Inter,
+);
+
+$fontSizes: (
+  8: 8px,
+  10: 10px,
+  12: 12px,
+  13: 13px,
+  14: 14px,
+  16: 16px,
+  17: 17px,
+  18: 18px,
+  20: 20px,
+  25: 25px,
+  35: 35px,
+  45: 45px,
+  60: 60px,
+  80: 80px,
+  100: 100px,
+);
+
+$fontWeights: (
+  "regular": 400,
+  "medium": 500,
+  "semibold": 600,
+  "bold": 700,
+);
+
+/*
+  MARGIN AND PADDING
+*/
+$spacings: (
+  1: 1px,
+  2: 2px,
+  3: 3px,
+  4: 4px,
+  5: 5px,
+  6: 6px,
+  7: 7px,
+  8: 8px,
+  9: 9px,
+  10: 10px,
+  11: 11px,
+  12: 12px,
+  13: 13px,
+  14: 14px,
+  15: 15px,
+  16: 16px,
+  17: 17px,
+  19: 19px,
+  18: 18px,
+  20: 20px,
+  22: 22px,
+  23: 23px,
+  24: 24px,
+  25: 25px,
+  26: 26px,
+  28: 28px,
+  30: 30px,
+  31: 31px,
+  34: 34px,
+  35: 35px,
+  40: 40px,
+  42: 42px,
+  45: 45px,
+  50: 50px,
+  54: 54px,
+  55: 55px,
+  56: 56px,
+  60: 60px,
+  65: 65px,
+  66: 66px,
+  68: 68px,
+  70: 70px,
+  75: 75px,
+  80: 80px,
+  81: 81px,
+  90: 90px,
+  94: 94px,
+  100: 100px,
+  110: 110px,
+  120: 120px,
+  135: 135px,
+  145: 145px,
+  150: 150px,
+  175: 175px,
+  180: 180px,
+  190: 190px,
+  200: 200px,
+  220: 220px,
+  250: 250px,
+  325: 325px,
+  366: 366px,
+);
+
+/*
+  SCREENS
+*/
+$screens: (
+  base: 0px,
+  xxxs: 375px,
+  xxs: 480px,
+  xs: 576px,
+  sm: 640px,
+  md: 768px,
+  l: 930px,
+  lg: 1024px,
+  xl: 1280px,
+);
+
+$navHeight: (
+  "mobile": 48px,
+  "desktop": 63px,
+  "desktopBanner": 40px,
+  "mobileBanner": 32px,
+);

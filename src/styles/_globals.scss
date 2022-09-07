@@ -1,0 +1,37 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  font-family: theme($fontFamilies, "Inter");
+  font-weight: theme($fontWeights, "regular");
+  font-size: theme($fontSizes, 14);
+  color: theme($colors, "black");
+  line-height: 1.4;
+  background-color: theme($colors, "white");
+  transition: background-color 0.8s linear;
+  overscroll-behavior-y: none;
+}
+
+body {
+  min-height: 100vh;
+}
+
+button {
+  all: initial;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  outline: none;
+  text-decoration: none;
+}
+
+Image {
+  vertical-align: middle;
+}
