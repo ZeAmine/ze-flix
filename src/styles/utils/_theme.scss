@@ -12,7 +12,7 @@ $colors: (
   // "black-60": #707070,
   // "black-33": #b1b1b1,
   // "black-20": #cfcfcf,
-  // "black-13": #dddddd,,
+  // "black-13": #dddddd,,,,,,,
 );
 
 /*
@@ -22,12 +22,14 @@ $mobile: (
   "columns": 16,
   "gap": 8px,
   "gutter": 20px,
+  "margins": 40px,
 );
 
 $desktop: (
   "columns": 24,
   "gap": 8px,
   "gutter": 40px,
+  "margins": 80px,
 );
 
 $max: (
@@ -153,7 +155,5 @@ $screens: (
 
 $navHeight: (
   "mobile": 48px,
-  "desktop": 63px,
-  "desktopBanner": 40px,
-  "mobileBanner": 32px,
+  "desktop": 110px,
 );
