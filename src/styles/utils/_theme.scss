@@ -12,22 +12,22 @@ $colors: (
   // "black-60": #707070,
   // "black-33": #b1b1b1,
   // "black-20": #cfcfcf,
-  // "black-13": #dddddd,,,,,,,
+  // "black-13": #dddddd,,,,,,,,,,,,
 );
 
 /*
   GRID
 */
 $mobile: (
-  "columns": 16,
-  "gap": 8px,
+  "columns": 12,
+  "gap": 5px,
   "gutter": 20px,
   "margins": 40px,
 );
 
 $desktop: (
   "columns": 24,
-  "gap": 8px,
+  "gap": 10px,
   "gutter": 40px,
   "margins": 80px,
 );
@@ -47,21 +47,14 @@ $fontFamilies: (
 );
 
 $fontSizes: (
-  8: 8px,
-  10: 10px,
   12: 12px,
-  13: 13px,
   14: 14px,
   16: 16px,
-  17: 17px,
   18: 18px,
-  20: 20px,
   25: 25px,
   35: 35px,
   45: 45px,
   60: 60px,
-  80: 80px,
-  100: 100px,
 );
 
 $fontWeights: (

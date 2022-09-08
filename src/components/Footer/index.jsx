@@ -1,7 +1,16 @@
 import css from "./style.module.scss";
+import cx from "classnames/bind";
 
 const Footer = () => {
-  return <div>Footer</div>;
+  return (
+    <footer className={css.Footer}>
+      <div className={css.container}>
+        <h4 className={css.text}>
+          Copyright © 2022 — 2023 Amine Zegmou. Tous droits réservés.
+        </h4>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;

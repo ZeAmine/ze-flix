@@ -6,7 +6,7 @@ import cx from "classnames/bind";
 
 const Header = () => {
   return (
-    <div className={css.Header}>
+    <header className={css.Header}>
       <div className={css.brandContainer}>
         <h1 className={css.brand}>ZE/FLIX</h1>
       </div>
@@ -33,7 +33,7 @@ const Header = () => {
           <User />
         </span>
       </div>
-    </div>
+    </header>
   );
 };
 

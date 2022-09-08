@@ -52,8 +52,12 @@
       @include font-base(18, 18, "Inter", 1.4);
     }
 
-    &-20 {
-      @include font-base(20, 20, "Inter", 1.4);
+    &-24 {
+      @include font-base(24, 24, "Inter", 1.4);
+    }
+
+    &-35 {
+      @include font-base(35, 35, "Inter", 1.1);
     }
 
     &-60 {
