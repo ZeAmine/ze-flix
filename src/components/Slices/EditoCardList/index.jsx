@@ -1,9 +1,10 @@
+import classnames from "classnames/bind";
 import EditoCard from "../../UI/EditoCard";
 
 import css from "./style.module.scss";
-import cx from "classnames/bind";
+const cx = classnames.bind(css);
 
-const EditoCardList = () => {
+const EditoCardList = ({ movies }) => {
   return (
     <section className={css.EditoCardList}>
       <div className={css.infos}>
@@ -24,12 +25,9 @@ const EditoCardList = () => {
         </div>
       </div>
       <div className={css.container}>
-        <EditoCard />
-        <EditoCard />
-        <EditoCard />
-        <EditoCard />
-        <EditoCard />
-        <EditoCard />
+        {movies?.Search?.map((movie, idx) => (
+          <EditoCard key={`movie-${idx}`} {...movie} />
+        ))}
       </div>
     </section>
   );

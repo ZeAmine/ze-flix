@@ -6,6 +6,7 @@
 
   .container {
     position: relative;
+    overflow: hidden;
 
     .imageContainer {
       position: relative;
@@ -14,6 +15,16 @@
       .image {
         width: 100%;
         height: 100%;
+      }
+
+      .withoutImage {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        border: 1px solid theme($colors, "silver");
       }
     }
 
@@ -57,5 +68,13 @@
 
   .gender {
     font-weight: theme($fontWeights, "regular");
+  }
+
+  .text {
+    @extend %text-inter-12;
+    font-weight: theme($fontWeights, "regular");
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: theme($spacings, 10);
   }
 }

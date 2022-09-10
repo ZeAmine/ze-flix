@@ -1,26 +1,100 @@
+import { useState, useEffect, useRef } from "react";
+import classnames from "classnames/bind";
 import Image from "next/image";
-import black from "./black-panther.webp";
+import gsap from "gsap";
 
-import { Add } from "../../Icons";
+import black from "./black-panther.webp";
+import { Add, Alert } from "../../Icons";
 
 import css from "./style.module.scss";
-import cx from "classnames/bind";
+const cx = classnames.bind(css);
 
-const EditoCard = () => {
+const EditoCard = ({ Poster, Title, Type, Year }) => {
+  const [activeBanner, setActiveBanner] = useState(false);
+  const bannerRef = useRef();
+  const imageRef = useRef();
+
+  const timeline = gsap.timeline({
+    defaults: { duration: 0.4, ease: "expo.inOut" },
+  });
+
+  const revealBanner = (element, element2) => {
+    timeline
+      .to(
+        element2,
+        {
+          filter: "blur(1px)",
+          duration: 0.6,
+          ease: "none",
+        },
+        -0.6
+      )
+      .to(element, {
+        translateY: "0%",
+      });
+  };
+
+  const hideBanner = (element, element2) => {
+    timeline
+      .to(
+        element2,
+        {
+          filter: "blur(0px)",
+          duration: 0.7,
+          ease: "none",
+        },
+        -0.5
+      )
+      .to(element, {
+        translateY: "100%",
+      });
+  };
+
+  useEffect(() => {
+    activeBanner
+      ? revealBanner(bannerRef.current, imageRef.current)
+      : hideBanner(bannerRef.current, imageRef.current);
+  }, [activeBanner]);
+
   return (
     <div className={css.EditoCard}>
-      <div className={css.container}>
+      <div
+        className={css.container}
+        onMouseEnter={() => setActiveBanner(true)}
+        onMouseLeave={() => setActiveBanner(false)}
+      >
         <div className={css.imageContainer}>
-          <Image src={black} className={css.image} layout="fill" alt="poster" />
+          {!Poster || Poster === "N/A" ? (
+            <div className={css.withoutImage}>
+              <Alert />
+              <p className={css.text}>Image indisponible</p>
+            </div>
+          ) : (
+            <img
+              src={Poster}
+              alt="poster"
+              className={css.image}
+              ref={imageRef}
+            />
+          )}
+
+          {/* <Image
+            src={Poster}
+            className={css.image}
+            layout="fill"
+            alt="poster"
+          /> */}
         </div>
-        <div className={css.addFavorite}>
+        <div className={css.addFavorite} ref={bannerRef}>
           <Add className={css.iconAdd} />
           <span className={css.favoriteText}>Ajouter au favoris</span>
         </div>
       </div>
       <div className={css.content}>
-        <p className={css.title}>Black Panther</p>
-        <p className={css.gender}>Action - Super heroes</p>
+        <p className={css.title}>{Title}</p>
+        <p className={css.gender}>
+          {Type} - {Year}
+        </p>
       </div>
     </div>
   );

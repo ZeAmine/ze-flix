@@ -1,24 +1,27 @@
 import { useState, useEffect, useRef } from 'react';
-import Router from 'next/router';
+import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Layout from '../src/components/Layout';
-import SearchBar from '../src/components/Slices/SearchBar';
 import EditoCardList from '../src/components/Slices/EditoCardList';
+import SearchBar from '../src/components/Slices/SearchBar';
 import { baseUrl, fetchAPI } from '../src/utils/fetchAPI';
 
-export default function Home({ movies }) {
+export default function Search({ movies }) {
   const [query, setQuery] = useState('');
+  const router = useRouter();
 
   const search = (e) => {
     e.preventDefault();
     if (!query) return;
-    Router.push(`/search?term=${query}`);
+    router.push(`/search?term=${query}`);
   };
+
+  console.log(movies);
 
   return (
     <>
       <Head>
-        <title>ZE/FLIX</title>
+        <title>{router.query.term} - ZE/FLIX</title>
         <meta name="title" content="ZE/FLIX" />
         <meta
           name="description"
@@ -35,22 +38,9 @@ export default function Home({ movies }) {
 }
 
 export async function getServerSideProps(context) {
-  const movies = await fetchAPI(`${baseUrl}&s=batman`);
+  const movies = await fetchAPI(`${baseUrl}&s=${context.query.term}`);
 
   return {
     props: { movies },
   };
 }
-
-// const [searchResults, setSearchResults] = useState([]);
-
-// useEffect(() => {
-//   setSearchResults(movies);
-// }, [movies]);
-
-// const search = async (e) => {
-//   e.preventDefault();
-
-//   const series = await fetchAPI(`${baseUrl}&s=${query}`);
-//   setSearchResults(series);
-// };

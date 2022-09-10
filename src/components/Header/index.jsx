@@ -1,8 +1,9 @@
+import classnames from "classnames/bind";
 import Link from "next/link";
-import { Favorie, Notification, User, WatchList } from "../Icons";
+import { Notification, User, WatchList } from "../Icons";
 
 import css from "./style.module.scss";
-import cx from "classnames/bind";
+const cx = classnames.bind(css);
 
 const Header = () => {
   return (

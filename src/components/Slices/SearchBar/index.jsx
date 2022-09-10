@@ -1,7 +1,9 @@
-import css from "./style.module.scss";
-import cx from "classnames/bind";
+import classnames from 'classnames/bind';
 
-const SearchBar = () => {
+import css from './style.module.scss';
+const cx = classnames.bind(css);
+
+const SearchBar = ({ search, query, setQuery }) => {
   return (
     <section className={css.SearchBar}>
       <div className={css.wrapper}>
@@ -9,8 +11,17 @@ const SearchBar = () => {
           <input
             type="text"
             className={css.input}
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
             placeholder="(Rechercher...)"
+            required
           />
+          <button onClick={search} className={css.button}>
+            Rechercher
+          </button>
+          <button onClick={() => setQuery('')} className={css.button}>
+            Supprimer
+          </button>
         </div>
       </div>
     </section>
