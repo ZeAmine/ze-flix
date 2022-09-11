@@ -1,0 +1,53 @@
+@import '../../../styles/utils/variables';
+
+.Filters {
+  @extend %base-grid;
+  margin-top: theme($desktop, 'margins');
+  margin-bottom: theme($spacings, 40);
+
+  .result {
+    grid-column: 1 / 5;
+
+    .resultText {
+      @extend %text-inter-35;
+      font-weight: theme($fontWeights, 'semibold');
+      color: theme($colors, 'cod');
+    }
+  }
+
+  .filter {
+    grid-column: -15 / -1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: theme($desktop, 'gap');
+  }
+
+  .line {
+    width: 200px;
+    height: 1px;
+    background-color: theme($colors, 'silver');
+    margin-left: theme($desktop, 'gap');
+  }
+
+  .filterList {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .filterItem {
+      margin-left: theme($desktop, 'gap');
+      cursor: pointer;
+    }
+  }
+
+  .text {
+    @extend %text-inter-12;
+    font-weight: theme($fontWeights, 'regular');
+    color: theme($colors, 'gray');
+
+    &.filterText:hover {
+      color: theme($colors, 'cod');
+    }
+  }
+}

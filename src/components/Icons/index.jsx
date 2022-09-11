@@ -1,17 +1,6 @@
-// export function User(props) {
-//   return (
-//     <svg width={20} height={20} viewBox="0 0 24 24" {...props}>
-//       <path
-//         fill="currentColor"
-//         d="M5 20h14v2H5v-2zm7-2a8 8 0 1 1 0-16a8 8 0 0 1 0 16zm0-2a6 6 0 1 0 0-12a6 6 0 0 0 0 12z"
-//       ></path>
-//     </svg>
-//   );
-// }
-
-export function User(props) {
+export function Brand(props) {
   return (
-    <svg width={25} height={25} viewBox="0 0 24 24" {...props}>
+    <svg width={35} height={35} viewBox="0 0 24 24" {...props}>
       <path
         fill="currentColor"
         d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10zm0-2a8 8 0 1 0 0-16a8 8 0 0 0 0 16zm-5-8h2a3 3 0 0 0 6 0h2a5 5 0 0 1-10 0z"
@@ -68,6 +57,25 @@ export function Alert(props) {
         fill="currentColor"
         d="m12.866 3l9.526 16.5a1 1 0 0 1-.866 1.5H2.474a1 1 0 0 1-.866-1.5L11.134 3a1 1 0 0 1 1.732 0zm-8.66 16h15.588L12 5.5L4.206 19zM11 16h2v2h-2v-2zm0-7h2v5h-2V9z"
       ></path>
+    </svg>
+  );
+}
+
+export function Cross(props) {
+  return (
+    <svg width={20} height={20} viewBox="0 0 24 24" {...props}>
+      <path
+        fill="currentColor"
+        d="m12 10.586l4.95-4.95l1.414 1.414l-4.95 4.95l4.95 4.95l-1.414 1.414l-4.95-4.95l-4.95 4.95l-1.414-1.414l4.95-4.95l-4.95-4.95L7.05 5.636z"
+      ></path>
+    </svg>
+  );
+}
+
+export function Delete(props) {
+  return (
+    <svg width={20} height={20} viewBox="0 0 24 24" {...props}>
+      <path fill="currentColor" d="M5 11h14v2H5z"></path>
     </svg>
   );
 }

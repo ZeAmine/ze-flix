@@ -8,17 +8,14 @@ import { Add, Alert, Delete } from '../../Icons';
 import css from './style.module.scss';
 const cx = classnames.bind(css);
 
-const EditoCard = ({ movie, favorites, addFavorites }) => {
+const EditoCardFav = ({ favorite }) => {
   const [activeBanner, setActiveBanner] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   const bannerRef = useRef();
   const imageRef = useRef();
 
-  const storedMovie = favorites?.find((fav) => fav?.imdbID === movie?.imdbID);
-  const favoriteDisable = storedMovie ? true : false;
-
-  const { Poster, Title, Type, Year } = movie;
+  const { Poster, Title, Type, Year } = favorite;
 
   // ------------Animation------------
   const timeline = gsap.timeline({
@@ -64,7 +61,7 @@ const EditoCard = ({ movie, favorites, addFavorites }) => {
   }, [activeBanner]);
 
   return (
-    <div className={css.EditoCard}>
+    <div className={css.EditoCardFav}>
       <div
         className={css.container}
         onMouseEnter={() => setActiveBanner(true)}
@@ -88,21 +85,11 @@ const EditoCard = ({ movie, favorites, addFavorites }) => {
         </div>
         <div
           className={css.addFavorite}
-          onClick={() => !favoriteDisable && addFavorites(movie)}
-          style={{ backgroundColor: favoriteDisable ? '#8c8c8c' : '#c3e301' }}
+          style={{ backgroundColor: '#8c8c8c' }}
           ref={bannerRef}
         >
-          {favoriteDisable ? (
-            <>
-              <Delete className={css.icon} />
-              <span className={css.favoriteText}>Supprimer des favoris</span>
-            </>
-          ) : (
-            <>
-              <Add className={css.icon} />
-              <span className={css.favoriteText}>Ajouter au favoris</span>
-            </>
-          )}
+          <Delete className={css.icon} />
+          <span className={css.favoriteText}>Supprimer des favoris</span>
         </div>
       </div>
       <div className={css.content}>
@@ -117,4 +104,4 @@ const EditoCard = ({ movie, favorites, addFavorites }) => {
   );
 };
 
-export default EditoCard;
+export default EditoCardFav;

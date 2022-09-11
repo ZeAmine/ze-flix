@@ -1,10 +1,10 @@
-@import "../../styles/utils/variables";
+@import '../../styles/utils/variables';
 
 .Footer {
   @extend %base-grid;
   height: 80px;
-  margin-top: theme($desktop, "margings");
-  background-color: theme($colors, "silver");
+  margin-top: theme($desktop, 'margings');
+  border-top: 1px solid theme($colors, 'silver');
   z-index: 30;
 
   .container {
@@ -16,7 +16,7 @@
 
     .text {
       @extend %text-inter-12;
-      font-weight: theme($fontWeights, "regular");
+      font-weight: theme($fontWeights, 'regular');
     }
   }
 }

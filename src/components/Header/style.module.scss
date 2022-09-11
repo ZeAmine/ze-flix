@@ -1,10 +1,11 @@
-@import "../../styles/utils/variables";
+@import '../../styles/utils/variables';
 
 .Header {
   @extend %base-grid;
 
   height: 110px;
-  border-bottom: 1px solid theme($colors, "silver");
+  border-bottom: 1px solid theme($colors, 'silver');
+  margin-bottom: theme($desktop, 'margins');
 
   .brandContainer {
     grid-column: 1 / 5;
@@ -12,33 +13,43 @@
     align-items: center;
 
     .brand {
-      @extend %text-inter-16;
-      font-weight: theme($fontWeights, "semibold");
+      transform: rotate(0);
+      transition: transform 100ms ease-out;
+      cursor: pointer;
+
+      &:hover {
+        transform: rotate(180deg);
+      }
     }
   }
 
   .navList {
-    grid-column: 5 / 12;
+    grid-column: -14 / -1;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 
-  .navCategory {
+  .navItem {
     position: relative;
     display: grid;
     justify-content: center;
     align-items: center;
     margin-bottom: -1px;
-    border-bottom: 1px solid theme($colors, "silver");
-    border-right: 1px solid theme($colors, "silver");
+    border-bottom: 1px solid theme($colors, 'silver');
+    border-right: 1px solid theme($colors, 'silver');
     cursor: pointer;
 
     &:first-child {
-      border-left: 1px solid theme($colors, "silver");
+      border-left: 1px solid theme($colors, 'silver');
+    }
+
+    &.profile {
+      grid-column: span 2 / span 2;
+      justify-content: flex-end;
     }
 
     &:hover {
-      border-bottom: 1px solid theme($colors, "cod");
+      border-bottom: 1px solid theme($colors, 'cod');
     }
 
     // &::before {
@@ -55,42 +66,30 @@
     // }
   }
 
-  .item {
-    @extend %text-inter-14;
-    font-weight: theme($fontWeights, "normal");
+  .itemContainer {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 theme($spacings, 60);
+
+    .text {
+      @extend %text-inter-14;
+      font-weight: theme($fontWeights, 'normal');
+    }
+
+    .number {
+      content: '';
+      @extend %text-inter-12;
+      font-weight: theme($fontWeights, 'regular');
+      color: theme($colors, 'cod');
+      position: absolute;
+      bottom: 6px;
+      left: 8px;
+      padding: 5px 10px;
+    }
   }
 
-  .profile {
-    grid-column: -4 / -1;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    justify-items: center;
-    align-items: center;
-
-    .icon {
-      padding: theme($spacings, 10);
-      cursor: pointer;
-    }
-
-    .user {
-      grid-column: span 2 / span 2;
-      position: relative;
-
-      &::before {
-        content: "";
-        position: absolute;
-        top: 47%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 53px;
-        height: 53px;
-        border-radius: 50%;
-        border: 1px solid theme($colors, "gray");
-      }
-
-      &:hover:before {
-        background-color: theme($colors, "cod");
-      }
-    }
+  .name {
+    font-weight: theme($fontWeights, 'semibold');
   }
 }

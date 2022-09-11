@@ -5,32 +5,31 @@ import Layout from '../src/components/Layout';
 import EditoCardList from '../src/components/Slices/EditoCardList';
 import SearchBar from '../src/components/Slices/SearchBar';
 import { baseUrl, fetchAPI } from '../src/utils/fetchAPI';
+import { useAppContext } from '../src/context/state';
 
 export default function Search({ movies }) {
-  const [query, setQuery] = useState('');
   const router = useRouter();
+  const { setTotalResults } = useAppContext();
+  const [query, setQuery] = useState('');
 
-  const search = (e) => {
-    e.preventDefault();
+  const handleKeyPress = (e) => {
     if (!query) return;
-    router.push(`/search?term=${query}`);
+    e.key === 'Enter' && router.push(`/search?term=${query}`);
   };
 
-  console.log(movies);
+  setTotalResults(movies.totalResults);
 
   return (
     <>
       <Head>
         <title>{router.query.term} - ZE/FLIX</title>
-        <meta name="title" content="ZE/FLIX" />
-        <meta
-          name="description"
-          content="Zeflix est un service de streaming qui propose une vaste sélection de séries, films, animes, documentaires et autres programmes primés sur des milliers ..."
-        />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <SearchBar search={search} query={query} setQuery={setQuery} />
+        <SearchBar
+          query={query}
+          setQuery={setQuery}
+          handleKeyPress={handleKeyPress}
+        />
         <EditoCardList movies={movies} />
       </Layout>
     </>

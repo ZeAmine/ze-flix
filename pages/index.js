@@ -1,19 +1,23 @@
 import { useState, useEffect, useRef } from 'react';
-import Router from 'next/router';
+import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Layout from '../src/components/Layout';
 import SearchBar from '../src/components/Slices/SearchBar';
 import EditoCardList from '../src/components/Slices/EditoCardList';
 import { baseUrl, fetchAPI } from '../src/utils/fetchAPI';
+import { useAppContext } from '../src/context/state';
 
 export default function Home({ movies }) {
+  const router = useRouter();
+  const { setTotalResults } = useAppContext();
   const [query, setQuery] = useState('');
 
-  const search = (e) => {
-    e.preventDefault();
+  const handleKeyPress = (e) => {
     if (!query) return;
-    Router.push(`/search?term=${query}`);
+    e.key === 'Enter' && router.push(`/search?term=${query}`);
   };
+
+  setTotalResults(movies.totalResults);
 
   return (
     <>
@@ -27,7 +31,11 @@ export default function Home({ movies }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <SearchBar search={search} query={query} setQuery={setQuery} />
+        <SearchBar
+          query={query}
+          setQuery={setQuery}
+          handleKeyPress={handleKeyPress}
+        />
         <EditoCardList movies={movies} />
       </Layout>
     </>

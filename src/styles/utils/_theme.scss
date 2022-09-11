@@ -1,52 +1,53 @@
-@use "sass:math";
+@use 'sass:math';
 
 /*
   COLORS
 */
 $colors: (
-  "lime": #c3e301,
-  "cod": #0d0d0d,
-  "gray": #8c8c8c,
-  "silver": #cbcbcb,
-  "sheashell": #f1f1f1,
+  'lime': #c3e301,
+  'cod': #0d0d0d,
+  'gray': #8c8c8c,
+  'silver': #cbcbcb,
+  'sheashell': #f1f1f1,
   // "black-60": #707070,
   // "black-33": #b1b1b1,
   // "black-20": #cfcfcf,
-  // "black-13": #dddddd,,,,,,,,,,,,
+  // "black-13": #dddddd,,,,,,,,,,,,,,,,
 );
 
 /*
   GRID
 */
 $mobile: (
-  "columns": 12,
-  "gap": 5px,
-  "gutter": 20px,
-  "margins": 40px,
+  'columns': 12,
+  'gap': 5px,
+  'gutter': 20px,
+  'margins': 40px,
 );
 
 $desktop: (
-  "columns": 24,
-  "gap": 10px,
-  "gutter": 40px,
-  "margins": 80px,
+  'columns': 24,
+  'gap': 10px,
+  'gutter': 40px,
+  'margins': 80px,
 );
 
 $max: (
-  "width-design": 1440px,
-  "width": 1940px,
+  'width-design': 1440px,
+  'width': 1940px,
 );
 
 /*
   FONTS
 */
-$Inter: "Inter", sans-serif;
+$Inter: 'Inter', sans-serif;
 
 $fontFamilies: (
   Inter: $Inter,
 );
 
 $fontSizes: (
+  10: 10px,
   12: 12px,
   14: 14px,
   16: 16px,
@@ -58,10 +59,10 @@ $fontSizes: (
 );
 
 $fontWeights: (
-  "regular": 400,
-  "medium": 500,
-  "semibold": 600,
-  "bold": 700,
+  'regular': 400,
+  'medium': 500,
+  'semibold': 600,
+  'bold': 700,
 );
 
 /*
@@ -147,6 +148,6 @@ $screens: (
 );
 
 $navHeight: (
-  "mobile": 48px,
-  "desktop": 110px,
+  'mobile': 48px,
+  'desktop': 110px,
 );

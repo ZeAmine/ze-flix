@@ -1,7 +1,12 @@
-import "../src/styles/index.scss";
+import { AppWrapper } from '../src/context/state';
+import '../src/styles/index.scss';
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+  return (
+    <AppWrapper>
+      <Component {...pageProps} />;
+    </AppWrapper>
+  );
 }
 
 export default MyApp;

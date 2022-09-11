@@ -1,25 +1,25 @@
-@import "./mixins";
+@import './mixins';
 
 %base-grid {
   display: grid;
   width: 100vw;
   max-width: 100%;
-  grid-template-columns: repeat(theme($mobile, "columns"), 1fr);
+  grid-template-columns: repeat(theme($mobile, 'columns'), 1fr);
   grid-template-rows: 1fr;
-  column-gap: theme($mobile, "gap");
-  padding: 0 theme($mobile, "gutter");
+  column-gap: theme($mobile, 'gap');
+  padding: 0 theme($mobile, 'gutter');
   margin: 0 auto;
   box-sizing: border-box;
 
-  @include from("md") {
-    grid-template-columns: repeat(theme($desktop, "columns"), 1fr);
+  @include from('md') {
+    grid-template-columns: repeat(theme($desktop, 'columns'), 1fr);
     grid-template-rows: 1fr;
-    column-gap: theme($desktop, "gap");
-    padding: 0 theme($desktop, "gutter");
+    column-gap: theme($desktop, 'gap');
+    padding: 0 theme($desktop, 'gutter');
   }
 
-  @include from("md") {
-    width: theme($max, "width");
+  @include from('md') {
+    width: theme($max, 'width');
   }
 }
 
@@ -36,32 +36,36 @@
   * Inter
   */
   &-inter {
+    &-10 {
+      @include font-base(10, 10, 'Inter', 1.4);
+    }
+
     &-12 {
-      @include font-base(12, 12, "Inter", 1.4);
+      @include font-base(12, 12, 'Inter', 1.4);
     }
 
     &-14 {
-      @include font-base(14, 14, "Inter", 1.4);
+      @include font-base(14, 14, 'Inter', 1.4);
     }
 
     &-16 {
-      @include font-base(16, 16, "Inter", 1.4);
+      @include font-base(16, 16, 'Inter', 1.4);
     }
 
     &-18 {
-      @include font-base(18, 18, "Inter", 1.4);
+      @include font-base(18, 18, 'Inter', 1.4);
     }
 
     &-24 {
-      @include font-base(24, 24, "Inter", 1.4);
+      @include font-base(24, 24, 'Inter', 1.4);
     }
 
     &-35 {
-      @include font-base(35, 35, "Inter", 1.1);
+      @include font-base(35, 35, 'Inter', 1.1);
     }
 
     &-60 {
-      @include font-base(60, 60, "Inter", 1.1);
+      @include font-base(60, 60, 'Inter', 1.1);
     }
   }
 }

@@ -1,28 +1,27 @@
 import classnames from 'classnames/bind';
+import { Cross } from '../../Icons';
 
 import css from './style.module.scss';
 const cx = classnames.bind(css);
 
-const SearchBar = ({ search, query, setQuery }) => {
+const SearchBar = ({ query, setQuery, handleKeyPress }) => {
   return (
     <section className={css.SearchBar}>
       <div className={css.wrapper}>
-        <div className={css.inputContainer}>
-          <input
-            type="text"
-            className={css.input}
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="(Rechercher...)"
-            required
-          />
-          <button onClick={search} className={css.button}>
-            Rechercher
-          </button>
+        <input
+          type="text"
+          className={css.input}
+          onKeyPress={handleKeyPress}
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="(Rechercher...)"
+          required
+        />
+        {query && (
           <button onClick={() => setQuery('')} className={css.button}>
-            Supprimer
+            <Cross />
           </button>
-        </div>
+        )}
       </div>
     </section>
   );

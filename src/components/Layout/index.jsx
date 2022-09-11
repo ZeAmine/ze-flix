@@ -1,8 +1,8 @@
-import classnames from "classnames/bind";
-import Footer from "../Footer";
-import Header from "../Header";
+import classnames from 'classnames/bind';
+import Footer from '../Footer';
+import Header from '../Header';
 
-import css from "./style.module.scss";
+import css from './style.module.scss';
 const cx = classnames.bind(css);
 
 const Layout = ({ children }) => {

@@ -1,4 +1,4 @@
-@import "./theme";
+@import './theme';
 
 @function theme($key, $value) {
   @return map-get($key, $value);
@@ -16,7 +16,7 @@
   $family,
   $lineHeight,
   $letterSpacing: 0,
-  $weight: "normal"
+  $weight: 'normal'
 ) {
   font-family: theme($fontFamilies, $family);
   font-size: theme($fontSizes, $mobileSize);
@@ -25,17 +25,17 @@
   letter-spacing: $letterSpacing;
 
   @if $desktopSize != null {
-    @include from("md") {
+    @include from('md') {
       font-size: theme($fontSizes, $desktopSize);
     }
   }
 }
 
-@mixin mapToProps($map, $key: "toto") {
+@mixin mapToProps($map, $key: 'toto') {
   @if type-of($map) == map {
     @each $prop, $value in $map {
       @if type-of($value) != map {
-        @if inspect($prop) != "description" {
+        @if inspect($prop) != 'description' {
           #{$key}___#{$prop}: #{inspect($value)};
         }
       } @else {
@@ -46,9 +46,9 @@
 }
 
 :export {
-  @include mapToProps($colors, "colors");
-  @include mapToProps($mobile, "mobile");
-  @include mapToProps($desktop, "desktop");
-  @include mapToProps($screens, "screens");
-  @include mapToProps($navHeight, "navHeight");
+  @include mapToProps($colors, 'colors');
+  @include mapToProps($mobile, 'mobile');
+  @include mapToProps($desktop, 'desktop');
+  @include mapToProps($screens, 'screens');
+  @include mapToProps($navHeight, 'navHeight');
 }

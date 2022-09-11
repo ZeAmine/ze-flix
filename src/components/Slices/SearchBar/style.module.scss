@@ -1,50 +1,41 @@
-@import "../../../styles/utils/variables";
+@import '../../../styles/utils/variables';
 
 .SearchBar {
   @extend %base-grid;
-  margin: theme($desktop, "margins") 0;
+  margin: theme($desktop, 'margins') 0;
 
   .wrapper {
     position: relative;
-    grid-column: 1 / -1;
-    display: grid;
-    justify-content: center;
-    height: 100px;
-    overflow: hidden;
-  }
-
-  .inputContainer {
-    position: relative;
-    display: inline-flex;
-    justify-content: center;
+    grid-column: 7 / -7;
+    display: flex;
     align-items: center;
-    width: 500px;
-    height: 100%;
+    justify-content: center;
+    width: 100%;
+    height: 12vh;
+    overflow: hidden;
   }
 
   .input {
     @extend %text-inter-60;
-    font-weight: theme($fontWeights, "bold");
+    font-weight: theme($fontWeights, 'bold');
     font-style: italic;
     text-align: center;
-    // width: 100%;
+    width: 100%;
     height: 100%;
-    padding: theme($spacings, 10);
     background-color: transparent;
     border: none;
     outline: none;
 
     &::placeholder {
-      color: theme($colors, "silver");
+      color: theme($colors, 'silver');
     }
   }
 
   .button {
-    margin-left: 10px;
-    padding: 10px;
+    display: block;
     height: 100%;
+    padding: theme($spacings, 40);
     border: none;
     outline: none;
-    background-color: red;
   }
 }

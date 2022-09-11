@@ -1,6 +1,6 @@
-import classnames from "classnames/bind";
+import classnames from 'classnames/bind';
 
-import css from "./style.module.scss";
+import css from './style.module.scss';
 const cx = classnames.bind(css);
 
 const Footer = () => {
