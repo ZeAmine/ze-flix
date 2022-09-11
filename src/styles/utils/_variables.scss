@@ -68,6 +68,10 @@
       @include font-base(35, 35, 'Inter', 1.1);
     }
 
+    &-40 {
+      @include font-base(40, 40, 'Inter', 1.1);
+    }
+
     &-60 {
       @include font-base(60, 60, 'Inter', 1.1);
     }

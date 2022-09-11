@@ -6,28 +6,44 @@
   .container {
     @extend %base-grid;
     min-height: 50vh;
-    margin-top: theme($desktop, 'margins');
+    margin-top: theme($mobile, 'margins');
+
+    @include from('md') {
+      margin-top: theme($desktop, 'margins');
+    }
   }
 
   .noResult {
-    grid-column: 1 / 11;
+    grid-column: 1 / -1;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
     padding: theme($spacings, 50) 0;
 
+    @include from('md') {
+      grid-column: 1 / 11;
+    }
+
     .noResultText {
-      @extend %text-inter-60;
+      @extend %text-inter-35;
       font-weight: theme($fontWeights, 'semibold');
-      margin-bottom: theme($spacings, 20);
+      margin-bottom: theme($spacings, 10);
+
+      @include from('md') {
+        font-size: theme($spacings, 60);
+        margin-bottom: theme($spacings, 20);
+      }
     }
 
     .retryText {
-      @extend %text-inter-14;
+      @extend %text-inter-12;
       font-weight: theme($fontWeights, 'semibold');
-      margin-bottom: theme($spacings, 30);
       text-transform: uppercase;
+
+      @include from('md') {
+        font-size: theme($spacings, 14);
+      }
     }
   }
 }

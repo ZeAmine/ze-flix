@@ -2,15 +2,23 @@
 
 .Header {
   @extend %base-grid;
-
-  height: 110px;
+  height: 60px;
   border-bottom: 1px solid theme($colors, 'silver');
-  margin-bottom: theme($desktop, 'margins');
+  margin-bottom: theme($mobile, 'margins');
+
+  @include from('md') {
+    height: 110px;
+    margin-bottom: theme($desktop, 'margins');
+  }
 
   .brandContainer {
-    grid-column: 1 / 5;
+    grid-column: 1/ 2;
     display: grid;
     align-items: center;
+
+    @include from('md') {
+      grid-column: 1 / 5;
+    }
 
     .brand {
       transform: rotate(0);
@@ -24,9 +32,14 @@
   }
 
   .navList {
-    grid-column: -14 / -1;
+    grid-column: 3 / -1;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+
+    @include from('md') {
+      grid-column: -14 / -1;
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
 
   .navItem {
@@ -44,8 +57,10 @@
     }
 
     &.profile {
-      grid-column: span 2 / span 2;
-      justify-content: flex-end;
+      @include from('md') {
+        grid-column: span 2 / span 2;
+        justify-content: flex-end;
+      }
     }
 
     &:hover {
@@ -70,22 +85,35 @@
     display: flex;
     align-items: center;
     height: 100%;
-    padding: 0 theme($spacings, 60);
+    padding: 0 theme($spacings, 20);
+
+    @include from('md') {
+      padding: 0 theme($spacings, 60);
+    }
 
     .text {
-      @extend %text-inter-14;
+      @extend %text-inter-12;
       font-weight: theme($fontWeights, 'normal');
+
+      @include from('md') {
+        font-size: theme($spacings, 14);
+      }
     }
 
     .number {
-      content: '';
-      @extend %text-inter-12;
-      font-weight: theme($fontWeights, 'regular');
-      color: theme($colors, 'cod');
-      position: absolute;
-      bottom: 6px;
-      left: 8px;
-      padding: 5px 10px;
+      display: none;
+
+      @include from('md') {
+        content: '';
+        font-size: theme($spacings, 12);
+        font-weight: theme($fontWeights, 'regular');
+        color: theme($colors, 'cod');
+        position: absolute;
+        bottom: 6px;
+        left: 8px;
+        display: grid;
+        padding: 5px 10px;
+      }
     }
   }
 

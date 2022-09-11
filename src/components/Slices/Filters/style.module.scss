@@ -2,32 +2,64 @@
 
 .Filters {
   @extend %base-grid;
-  margin-top: theme($desktop, 'margins');
-  margin-bottom: theme($spacings, 40);
+  margin-top: theme($mobile, 'margins');
+  margin-bottom: theme($spacings, 10);
+
+  @include from('md') {
+    margin-top: theme($desktop, 'margins');
+    margin-bottom: theme($spacings, 40);
+  }
 
   .result {
-    grid-column: 1 / 5;
+    grid-column: span 2;
+
+    @include from('md') {
+      grid-column: 1 / 5;
+    }
 
     .resultText {
-      @extend %text-inter-35;
+      @extend %text-inter-24;
       font-weight: theme($fontWeights, 'semibold');
       color: theme($colors, 'cod');
+
+      @include from('md') {
+        font-size: theme($spacings, 35);
+        grid-column: 1 / 5;
+      }
     }
   }
 
   .filter {
-    grid-column: -15 / -1;
+    grid-column: -4 / -1;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: theme($desktop, 'gap');
+    gap: theme($mobile, 'gap');
+
+    @include from('md') {
+      grid-column: -15 / -1;
+      gap: theme($desktop, 'gap');
+    }
+  }
+
+  .filterTitle {
+    display: none;
+
+    @include from('md') {
+      display: inline-block;
+    }
   }
 
   .line {
+    display: none;
     width: 200px;
     height: 1px;
     background-color: theme($colors, 'silver');
     margin-left: theme($desktop, 'gap');
+
+    @include from('md') {
+      display: block;
+    }
   }
 
   .filterList {

@@ -14,7 +14,7 @@ export default function Filters({ totalResults }) {
         )}
       </div>
       <div className={css.filter}>
-        <h4 className={css.text}>Filtrer par</h4>
+        <h4 className={cx(css.text, css.filterTitle)}>Filtrer par</h4>
         <div className={css.line} />
         <ul className={css.filterList}>
           <li className={css.filterItem}>

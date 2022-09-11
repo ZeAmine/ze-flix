@@ -10,7 +10,6 @@ const cx = classnames.bind(css);
 
 const EditoCardFav = ({ favorite, removeFavorites }) => {
   const [revealImage, setRevealImage] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
 
   const imageRef = useRef();
 
@@ -18,8 +17,24 @@ const EditoCardFav = ({ favorite, removeFavorites }) => {
 
   // ------------Animation------------
   const timeline = gsap.timeline({
-    defaults: { duration: 0.4, ease: 'expo.inOut' },
+    defaults: { duration: 0.8, ease: 'ease.inOut' },
   });
+
+  const addFilterImage = (element) => {
+    timeline.fromTo(
+      element,
+      {
+        filter: 'grayscale(1) brightness(1.5) contrast(.5)',
+      },
+      {
+        filter: 'grayscale(0) brightness(1) contrast(1)',
+      }
+    );
+  };
+
+  useEffect(() => {
+    revealImage && addFilterImage(imageRef.current);
+  }, [revealImage]);
 
   return (
     <div className={css.EditoCardFav}>
@@ -34,8 +49,8 @@ const EditoCardFav = ({ favorite, removeFavorites }) => {
           {Title && <h2 className={cx(css.text, css.title)}>{Title}</h2>}
         </div>
         <div className={css.infoContainer}>
-          {Type && <h2 className={css.text}>{Type}</h2>}
-          {Year && <h2 className={css.text}>({Year})</h2>}
+          {Type && <h2 className={cx(css.text)}>{Type}</h2>}
+          {Year && <h2 className={cx(css.text, css.infoText)}>({Year})</h2>}
         </div>
         <div
           className={css.imageContainer}
@@ -52,7 +67,7 @@ const EditoCardFav = ({ favorite, removeFavorites }) => {
               src={Poster}
               layout="fill"
               objectFit="cover"
-              className={isLoading ? css.image : css.imagePlaceholder}
+              className={css.image}
               alt="poster"
             />
           )}

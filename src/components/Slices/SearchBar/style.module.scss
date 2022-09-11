@@ -2,21 +2,30 @@
 
 .SearchBar {
   @extend %base-grid;
-  margin: theme($desktop, 'margins') 0;
+  margin: theme($mobile, 'margins') 0;
+
+  @include from('md') {
+    margin: theme($desktop, 'margins') 0;
+  }
 
   .wrapper {
     position: relative;
-    grid-column: 7 / -7;
+    grid-column: 1 / -1;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 12vh;
+    height: 10vh;
     overflow: hidden;
+
+    @include from('md') {
+      grid-column: 7 / -7;
+      height: 12vh;
+    }
   }
 
   .input {
-    @extend %text-inter-60;
+    @extend %text-inter-40;
     font-weight: theme($fontWeights, 'bold');
     font-style: italic;
     text-align: center;
@@ -29,13 +38,21 @@
     &::placeholder {
       color: theme($colors, 'silver');
     }
+
+    @include from('md') {
+      font-size: theme($spacings, 60);
+    }
   }
 
   .button {
     display: block;
     height: 100%;
-    padding: theme($spacings, 40);
+    padding: 0 theme($spacings, 15);
     border: none;
     outline: none;
+
+    @include from('md') {
+      padding: 0 theme($spacings, 40);
+    }
   }
 }

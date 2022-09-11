@@ -10,7 +10,6 @@ const cx = classnames.bind(css);
 
 const EditoCard = ({ movie, favorites, addFavorites }) => {
   const [activeBanner, setActiveBanner] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
 
   const bannerRef = useRef();
   const imageRef = useRef();
@@ -81,7 +80,7 @@ const EditoCard = ({ movie, favorites, addFavorites }) => {
               src={Poster}
               layout="fill"
               objectFit="cover"
-              className={isLoading ? css.image : css.imagePlaceholder}
+              className={css.image}
               alt="poster"
             />
           )}

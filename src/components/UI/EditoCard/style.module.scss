@@ -1,8 +1,13 @@
 @import '../../../styles/utils/variables';
 
 .EditoCard {
-  grid-column: span 6;
+  grid-column: 1 / -1;
   margin-bottom: theme($desktop, 'gutter');
+
+  @include from('md') {
+    grid-column: span 6;
+    margin-bottom: theme($desktop, 'gutter');
+  }
 
   .container {
     position: relative;
@@ -11,6 +16,10 @@
     .imageContainer {
       position: relative;
       height: 480px;
+
+      @include from('md') {
+        height: 400px;
+      }
 
       .image {
         width: 100%;
@@ -59,15 +68,23 @@
   }
 
   .content {
-    margin-top: theme($spacings, 8);
+    margin-top: theme($spacings, 10);
     text-align: left;
+
+    @include from('md') {
+      margin-top: theme($spacings, 8);
+    }
   }
 
   .title,
   .gender {
-    @extend %text-inter-14;
+    @extend %text-inter-16;
     font-weight: theme($fontWeights, 'bold');
     text-transform: capitalize;
+
+    @include from('md') {
+      font-size: theme($spacings, 14);
+    }
   }
 
   .gender {
