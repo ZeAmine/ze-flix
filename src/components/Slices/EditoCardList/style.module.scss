@@ -4,32 +4,30 @@
   margin: theme($desktop, 'margins') 0;
 
   .container {
+    @extend %base-grid;
     min-height: 50vh;
-
-    .noResult {
-      grid-column: 1 / 11;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      width: 100%;
-      padding: theme($spacings, 50) 0;
-
-      .noResultText {
-        @extend %text-inter-60;
-        font-weight: theme($fontWeights, 'semibold');
-        margin-bottom: theme($spacings, 20);
-      }
-
-      .retryText {
-        @extend %text-inter-14;
-        font-weight: theme($fontWeights, 'semibold');
-        margin-bottom: theme($spacings, 30);
-        text-transform: uppercase;
-      }
-    }
+    margin-top: theme($desktop, 'margins');
   }
 
-  .container {
-    @extend %base-grid;
+  .noResult {
+    grid-column: 1 / 11;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding: theme($spacings, 50) 0;
+
+    .noResultText {
+      @extend %text-inter-60;
+      font-weight: theme($fontWeights, 'semibold');
+      margin-bottom: theme($spacings, 20);
+    }
+
+    .retryText {
+      @extend %text-inter-14;
+      font-weight: theme($fontWeights, 'semibold');
+      margin-bottom: theme($spacings, 30);
+      text-transform: uppercase;
+    }
   }
 }

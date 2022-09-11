@@ -22,7 +22,7 @@ export default function Home({ movies }) {
   return (
     <>
       <Head>
-        <title>ZE/FLIX</title>
+        <title>Accueil - ZE/FLIX</title>
         <meta name="title" content="ZE/FLIX" />
         <meta
           name="description"

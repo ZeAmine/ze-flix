@@ -3,33 +3,59 @@
 .EditoCardListFav {
   margin: theme($desktop, 'margins') 0;
 
-  .container {
-    min-height: 50vh;
+  .labels {
+    @extend %base-grid;
+    display: grid;
+    align-items: center;
+    margin-bottom: theme($spacings, 150);
 
-    .noResult {
-      grid-column: 1 / 10;
+    .labelText {
+      @extend %text-inter-12;
+      font-weight: theme($fontWeights, 'semibold');
+      margin-left: theme($spacings, 8);
+      text-transform: uppercase;
+    }
+
+    .labelTitle {
+      grid-column: 1 / 12;
+    }
+
+    .labelInfos {
+      grid-column: 12 / 18;
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      width: 100%;
-      padding: theme($spacings, 50) 0;
+      align-items: center;
+    }
 
-      .noResultText {
-        @extend %text-inter-60;
-        font-weight: theme($fontWeights, 'semibold');
-        margin-bottom: theme($spacings, 20);
-      }
-
-      .retryText {
-        @extend %text-inter-14;
-        font-weight: theme($fontWeights, 'semibold');
-        margin-bottom: theme($spacings, 30);
-        text-transform: uppercase;
-      }
+    .labelImage {
+      grid-column: 18 / -4;
+      display: flex;
+      justify-content: flex-end;
     }
   }
 
   .container {
-    @extend %base-grid;
+    min-height: 50vh;
+    margin-top: theme($desktop, 'margins');
+  }
+
+  .noResult {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-left: theme($spacings, 40);
+
+    .noResultText {
+      @extend %text-inter-60;
+      font-weight: theme($fontWeights, 'semibold');
+      margin-bottom: theme($spacings, 20);
+    }
+
+    .retryText {
+      @extend %text-inter-14;
+      font-weight: theme($fontWeights, 'semibold');
+      margin-bottom: theme($spacings, 30);
+      text-transform: uppercase;
+    }
   }
 }

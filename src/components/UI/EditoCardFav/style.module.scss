@@ -1,84 +1,89 @@
 @import '../../../styles/utils/variables';
 
 .EditoCardFav {
-  grid-column: span 6;
-  margin-bottom: theme($desktop, 'gutter');
+  margin-bottom: theme($spacings, 10);
 
-  .container {
+  .wrapper {
+    @extend %base-grid;
     position: relative;
-    overflow: hidden;
+    display: grid;
+    align-items: center;
+    cursor: pointer;
 
-    .imageContainer {
-      position: relative;
-      height: 480px;
-
-      .image {
-        width: 100%;
-        height: 100%;
-      }
-
-      .withoutImage {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 100%;
-        border: 1px solid theme($colors, 'silver');
-      }
-
-      // .imagePlaceholder {
-      //   background-color: gray;
-      // }
-    }
-
-    .addFavorite {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      height: 50px;
-      background-color: theme($colors, 'lime');
-      cursor: pointer;
-      z-index: 2;
-
-      .icon {
-        margin-right: theme($spacings, 5);
-        margin-bottom: 1.5px;
-      }
-
-      .favoriteText {
-        @extend %text-inter-12;
-        font-weight: theme($fontWeights, 'semibold');
-        text-transform: uppercase;
+    &:hover {
+      .text,
+      .icon path {
+        color: theme($colors, 'cod');
       }
     }
   }
 
-  .content {
-    margin-top: theme($spacings, 8);
-    text-align: left;
-  }
+  .titleContainer {
+    grid-column: 1 / 12;
+    grid-row: 1;
+    display: flex;
+    align-items: center;
 
-  .title,
-  .gender {
-    @extend %text-inter-14;
-    font-weight: theme($fontWeights, 'bold');
-    text-transform: capitalize;
-  }
+    .icon path {
+      color: theme($colors, 'gray');
+    }
 
-  .gender {
-    font-weight: theme($fontWeights, 'regular');
+    .title {
+      font-weight: theme($fontWeights, 'bold');
+    }
   }
 
   .text {
-    @extend %text-inter-12;
+    @extend %text-inter-24;
     font-weight: theme($fontWeights, 'regular');
+    color: theme($colors, 'gray');
+    margin-left: theme($spacings, 8);
     text-transform: uppercase;
-    text-align: center;
-    margin-top: theme($spacings, 10);
+  }
+
+  .infoContainer {
+    grid-column: 12 / 18;
+    display: flex;
+    align-items: center;
+  }
+
+  .imageContainer {
+    grid-column: span 4 / -1;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 200px;
+    max-width: 100%;
+    height: 200px;
+
+    .image {
+      width: 100%;
+      height: 100%;
+    }
+
+    // .imagePlaceholder {
+    //   background-color: gray;
+    // }
+
+    .withoutImage {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      border: 1px solid theme($colors, 'silver');
+      background-color: theme($colors, 'sheashell');
+    }
+
+    .imageText {
+      @extend %text-inter-12;
+      font-weight: theme($fontWeights, 'regular');
+      color: theme($colors, 'gray');
+      margin-left: theme($spacings, 8);
+      margin-top: theme($spacings, 5);
+      text-transform: uppercase;
+    }
   }
 }

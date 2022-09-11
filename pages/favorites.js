@@ -9,7 +9,7 @@ export default function Favorites() {
   return (
     <>
       <Head>
-        <title>Mes favoris - ZE/FLIX</title>
+        <title>Favoris - ZE/FLIX</title>
         <link rel="icon" href="/favicon-user.ico" />
       </Head>
       <Layout>
