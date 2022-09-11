@@ -3,16 +3,15 @@ import classnames from 'classnames/bind';
 import Image from 'next/image';
 import gsap from 'gsap';
 
-import { Add, Alert, Cross, Delete } from '../../Icons';
+import { Alert, Cross } from '../../Icons';
 
 import css from './style.module.scss';
 const cx = classnames.bind(css);
 
-const EditoCardFav = ({ favorite }) => {
+const EditoCardFav = ({ favorite, removeFavorites }) => {
   const [revealImage, setRevealImage] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-  const bannerRef = useRef();
   const imageRef = useRef();
 
   const { Poster, Title, Type, Year } = favorite;
@@ -26,6 +25,7 @@ const EditoCardFav = ({ favorite }) => {
     <div className={css.EditoCardFav}>
       <div
         className={css.wrapper}
+        onClick={() => removeFavorites(favorite)}
         onMouseEnter={() => setRevealImage(true)}
         onMouseLeave={() => setRevealImage(false)}
       >
